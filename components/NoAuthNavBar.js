@@ -26,5 +26,6 @@ export default function NoAuthNavBar() {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
   );
 }

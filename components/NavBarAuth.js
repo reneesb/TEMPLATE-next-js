@@ -1,29 +1,37 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react';
-import Link from 'next/link';
-import {
-  Navbar, Container, Nav, Button,
-} from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import { Button } from 'react-bootstrap';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import { signOut } from '../utils/auth';
 
-export default function NavBarAuth() {
+function BasicExample() {
   return (
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+    <Navbar bg="light" expand="lg">
       <Container>
-        <Link passHref href="/">
-          <Navbar.Brand>CHANGE ME</Navbar.Brand>
-        </Link>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
+        <Navbar.Brand href="#home">tekLab</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {/* CLOSE NAVBAR ON LINK SELECTION: https://stackoverflow.com/questions/72813635/collapse-on-select-react-bootstrap-navbar-with-nextjs-not-working */}
-            <Link passHref href="/">
-              <Nav.Link>Home</Nav.Link>
-            </Link>
-            <Button variant="danger" onClick={signOut}>Sign Out</Button>
+            <Nav.Link href="/search">Find a Tutor</Nav.Link>
+            <Nav.Link href="/">My Bookings</Nav.Link>
+            <NavDropdown title="Admin" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Create Tutor</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">
+                Manage Tutor
+              </NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Reports</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
           </Nav>
         </Navbar.Collapse>
+        <Button variant="info" onClick={signOut}>Sign Out</Button>
       </Container>
     </Navbar>
   );
 }
+
+export default BasicExample;

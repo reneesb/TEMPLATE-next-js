@@ -18,5 +18,16 @@ a {
 }
 
 body {
-  background-color: #88effd;
+  background-color: rgb(16, 214, 240);
+}
+
+.horizontal-card {
+  display: flex;
+  flex-direction: row;
+}
+.description-clamp {
+  overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
 }
